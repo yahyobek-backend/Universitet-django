@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Yo'nalishlar</title>
+</head>
+<body>
+    <h1>Yo'nalishlar</h1>
+    <hr>
+    <a href="/">Bosh sahifa</a>
+    {% for direction in directions %}
+        <p>{{ forloop.counter }}.
+            <a href="/directions/{{ direction.id }}/">
+                {{ direction.name }}
+            </a>
+        </p>
+    {% endfor %}
+
+    <hr>
+    <h3>Yangi yo'nalish qo'shish</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Yangi yo'nalishni saqlash</button>
+    </form>
+</body>
+</html>

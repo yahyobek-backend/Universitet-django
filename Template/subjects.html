@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Fanlar</title>
+</head>
+<body>
+    <h1>Fanlar</h1>
+    <hr>
+    <a href="/">Bosh sahifa</a>
+    {% for subject in subjects %}
+        <p>{{ forloop.counter }}.
+            <a href="/subjects/{{ subject.id }}/">
+                {{ subject.name }}
+            </a>
+        </p>
+    {% endfor %}
+
+    <hr>
+    <h3>Yangi fan qo'shish</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Yangi fanni saqlash</button>
+    </form>
+</body>
+</html>

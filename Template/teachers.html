@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O'qituvchilar</title>
+</head>
+<body>
+    <h1>O'qituvchilar</h1>
+    <hr>
+    <a href="/">Bosh sahifa</a>
+    {% for teacher in teachers %}
+        <p>{{ forloop.counter }}.
+            <a href="/teachers/{{ teacher.id }}/">
+                {{ teacher.name }}
+            </a>
+        </p>
+    {% endfor %}
+
+    <hr>
+    <h3>Yangi o'qituvchi qo'shish</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Yangi o'qituvchini saqlash</button>
+    </form>
+</body>
+</html>
