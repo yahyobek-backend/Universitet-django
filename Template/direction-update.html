@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yo'nalish | Tahrirlash</title>
+</head>
+<body>
+    <h1>{{ direction.name }} yo'nalishini ma'lumotlarini o'zgartirish</h1>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Ism: </label>
+        <input type="text" name="name" id="name" value="{{ direction.name }}">
+        <br><br>
+        <label for="is_active">Asosiy: </label>
+        <input type="checkbox" name="is_active" id="is_active" {% if direction.is_active %} checked {% endif %}>
+        <br><br>
+        <button type="submit">Saqlash</button>
+    </form>
+</body>
+</html>

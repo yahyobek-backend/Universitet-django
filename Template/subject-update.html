@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fan | Tahrirlash</title>
+</head>
+<body>
+<h1>{{ subject.name }} fanini ma'lumotlarini o'zgartirish</h1>
+<hr>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Nomi: </label>
+        <input type="text" name="name" id="name" value="{{ subject.name }}">
+        <br><br>
+        <label for="is_main">Asosiy: </label>
+        <input type="checkbox" name="is_main" id="is_main" {% if subject.is_main %} checked {% endif %}>
+        <br><br>
+        <label for="direction">Yo'nalish: </label>
+        <select name="direction_id" id="direction">
+             {% for direction in directions %}
+            <option value="{{ direction.id }}" {% if subject.direction.id == direction.id %} selected {% endif %}>{{ direction.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Saqlash</button>
+    </form>
+</body>
+</html>

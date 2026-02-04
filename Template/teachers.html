@@ -6,12 +6,24 @@
 </head>
 <body>
     <h1>O'qituvchilar</h1>
+    <form method="get">
+        <input type="text" name="search" placeholder="O'qituvchilar ismi bo'yicha qidiring ..." size="30" {% if search %} value="{{ search }}" {% endif %}>
+        <button type="submit">Qidirish</button>
+    </form>
     <hr>
     <a href="/">Bosh sahifa</a>
     {% for teacher in teachers %}
         <p>{{ forloop.counter }}.
             <a href="/teachers/{{ teacher.id }}/">
                 {{ teacher.name }}
+            </a>
+
+            <a href="/teachers/{{ teacher.id }}/delete/confirm">
+                <button>O'chirish</button>
+            </a>
+
+            <a href="{% url 'teacher-update' teacher.id %}">
+                <button>Tahrirlash</button>
             </a>
         </p>
     {% endfor %}

@@ -2,15 +2,112 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Bosh | sahifa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosh sahifa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-1 { background: #e74c3c; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); }
+        .btn-1:hover { background: #c0392b; box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4); }
+
+        .btn-2 { background: #2ecc71; box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3); }
+        .btn-2:hover { background: #27ae60; box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4); }
+
+        .btn-3 { background: #f39c12; box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3); }
+        .btn-3:hover { background: #d35400; box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4); }
+    </style>
 </head>
 <body>
-    <p>
-        Bu saytning asosiy sahifasi
-    </p>
-    <hr>
-    <a href="/directions/">Yo'nalishlar</a>
-    <a href="/subjects/">Fanlar</a>
-    <a href="/teachers/">O'qituvchilar</a>
+    <div class="container">
+        <h1><i class="fas fa-home"></i> Bosh sahifa</h1>
+        <p>Bu saytning asosiy sahifasi</p>
+        <hr style="margin: 20px 0; border: 0.5px solid #ecf0f1;">
+        <div class="links">
+            <a href="/directions/" class="btn btn-1">
+                <i class="fas fa-compass"></i> Yo'nalishlar
+            </a>
+            <a href="/subjects/" class="btn btn-2">
+                <i class="fas fa-book"></i> Fanlar
+            </a>
+            <a href="/teachers/" class="btn btn-3">
+                <i class="fas fa-chalkboard-teacher"></i> O'qituvchilar
+            </a>
+        </div>
+    </div>
 </body>
 </html>

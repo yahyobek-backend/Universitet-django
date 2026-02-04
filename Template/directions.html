@@ -13,6 +13,14 @@
             <a href="/directions/{{ direction.id }}/">
                 {{ direction.name }}
             </a>
+
+            <a href="/directions/{{ direction.id }}/delete/confirm">
+                <button>O'chirish</button>
+            </a>
+
+            <a href="{% url 'direction-update' direction.id %}">
+                <button>Tahrirlash</button>
+            </a>
         </p>
     {% endfor %}
 

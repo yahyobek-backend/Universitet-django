@@ -6,12 +6,26 @@
 </head>
 <body>
     <h1>Fanlar</h1>
+
+    <form method="get">
+        <input type="text" name="search" placeholder="Fan nomi bo'yicha qidiring ..." size="25" {% if search %} value="{{ search }}" {% endif %}>
+        <button type="submit">Qidirish</button>
+    </form>
     <hr>
+
     <a href="/">Bosh sahifa</a>
     {% for subject in subjects %}
         <p>{{ forloop.counter }}.
             <a href="/subjects/{{ subject.id }}/">
                 {{ subject.name }}
+            </a>
+
+            <a href="{% url 'subject-delete' subject.id %}">
+                <button type="submit">O'chirish</button>
+            </a>
+
+            <a href="{% url 'subject-update' subject.id %}">
+                <button>Tahrirlash</button>
             </a>
         </p>
     {% endfor %}

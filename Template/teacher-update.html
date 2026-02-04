@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O'qituvchi | Tahrirlash</title>
+</head>
+<body>
+<h1>{{ teacher.name }} ustoz ma'lumotlarini o'zgartirish</h1>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label for="name"><I>Ism: </I></label>
+    <input type="text" name="name" id="name" value="{{ teacher.name }}"><br><br>
+
+    <label for="age">Yoshi: </label>
+    <input type="number" name="age" id="age" value="{{ teacher.age }}"><br><br>
+
+    <label for="gender">Jins:</label>
+        <select name="gender" id="gender">
+            <option value="Erkak" {% if teacher.gender == 'Erkak' %}selected{% endif %}>Erkak</option>
+            <option value="Ayol" {% if teacher.gender == 'Ayol' %}selected{% endif %}>Ayol</option>
+        </select><br><br>
+
+    <label for="level">Daraja:</label>
+        <select name="level" id="level">
+            <option value="Bakalavr" {% if teacher.level == 'Bakalavr' %}selected{% endif %}>Bakalavr</option>
+            <option value="Magistr" {% if teacher.level == 'Magistr' %}selected{% endif %}>Magistr</option>
+        </select><br><br>
+
+    <label for="subject">Fan: </label>
+        <select name="subject_id" id="subject">
+             {% for subject in subjects %}
+            <option value="{{ subject.id }}" {% if teacher.subject.id == subject.id %} selected {% endif %}>{{ subject.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+    <button type="submit">Saqlash</button>
+</form>
+</body>
+</html>
